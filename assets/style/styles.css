@@ -272,7 +272,7 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr:hover {
-  box-shadow: inset 0 0 0 2px #666;
+  background:#EBEAC5 ;
 }
 
 tbody th {
