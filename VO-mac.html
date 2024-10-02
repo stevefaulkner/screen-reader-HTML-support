@@ -77,13 +77,545 @@ svg.unknown {
         <li><svg viewBox="0 0 512 512" width="20" aria-label="question mark" class="unknown" role="img"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path></svg> means we are unsure whether this feature is supported, this may be due to lack of testing or lack of clarity around what 'support' of this feature is supposed to convey to the user.</li>
       </ul>
 
-<table><thead><tr><th><strong>Element</strong></th><th><strong>Represents</strong></th><th><strong>Aural UI</strong></th><th><strong>Interaction</strong></th><th><strong>Supported</strong></th><th><strong>Notes</strong></th></tr></thead><tbody><tr><td><code>&lt;a&gt;</code> with <code>href</code></td><td>Hyperlink</td><td>Announces "link" + link text</td><td>VO + right/left arrow to navigate, VO + space to activate</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>VoiceOver recognizes visited/unvisited state of links.</td></tr><tr><td><code>&lt;a&gt;</code> without <code>href</code></td><td>Anchor</td><td>Treated as plain text</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>Treated as regular text with no link functionality.</td></tr><tr><td><code>&lt;abbr&gt;</code></td><td>Abbreviation</td><td>Reads element content; announces title if present</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Expands abbreviation if <code>title</code> attribute is present.</td></tr><tr><td><code>&lt;address&gt;</code></td><td>Contact information</td><td>Reads content as plain text</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>No specific semantics beyond reading the text.</td></tr><tr><td><code>&lt;article&gt;</code></td><td>Self-contained composition</td><td>Announces "article"</td><td>VO + Command + Option + Right Arrow to navigate</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognizes start/end of articles.</td></tr><tr><td><code>&lt;aside&gt;</code></td><td>Tangentially related content</td><td>Announces "complementary"</td><td>VO + Command + Option + Right Arrow to navigate</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognized as a complementary region.</td></tr><tr><td><code>&lt;audio&gt;</code></td><td>Audio player</td><td>Announces "audio"</td><td>Focusable via VO + space to play/pause</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Buttons in the audio player are accessible.</td></tr><tr><td><code>&lt;b&gt;</code></td><td>Bold text</td><td>Reads content as normal text</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>No specific emphasis conveyed.</td></tr><tr><td><code>&lt;bdi&gt;</code></td><td>Bi-directional isolation</td><td>Reads element content</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>No semantics conveyed.</td></tr><tr><td><code>&lt;bdo&gt;</code></td><td>Bi-directional override</td><td>Reads element content</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>No semantics conveyed.</td></tr><tr><td><code>&lt;blockquote&gt;</code></td><td>Quoted section</td><td>Announces "blockquote"</td><td>Navigable via VO commands</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Clearly announces the start and end of blockquotes.</td></tr><tr><td><code>&lt;body&gt;</code></td><td>Document body</td><td>Reads content</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>No special semantics conveyed.</td></tr><tr><td><code>&lt;button&gt;</code></td><td>Button control</td><td>Announces "button" + label</td><td>VO + space to activate</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognizes the button state and label.</td></tr><tr><td><code>&lt;canvas&gt;</code></td><td>Scriptable bitmap canvas</td><td>Announces "graphic" if <code>aria-label</code> is present</td><td>Focusable via VO navigation</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>Accessible fallback content is read if provided.</td></tr><tr><td><code>&lt;caption&gt;</code></td><td>Table caption</td><td>Announces caption when table is navigated</td><td>VO commands to navigate</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Acts as the table's title.</td></tr><tr><td><code>&lt;cite&gt;</code></td><td>Reference to a creative work</td><td>Reads element content</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>No special semantics conveyed.</td></tr><tr><td><code>&lt;code&gt;</code></td><td>Code snippet</td><td>Reads element content</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>No specific code indication given.</td></tr><tr><td><code>&lt;col&gt;</code></td><td>Table column</td><td>No aural indication</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>No semantics expected.</td></tr><tr><td><code>&lt;colgroup&gt;</code></td><td>Group of columns in a table</td><td>No aural indication</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>No semantics expected.</td></tr><tr><td><code>&lt;data&gt;</code></td><td>Machine-readable equivalent</td><td>Reads element content</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>No semantics conveyed.</td></tr><tr><td><code>&lt;datalist&gt;</code></td><td>Combo box suggestions</td><td>Announces "combo box"</td><td>VO + space to open</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Provides suggestions as the user types.</td></tr><tr><td><code>&lt;dd&gt;</code></td><td>Description definition</td><td>Reads element content</td><td>Part of list navigation</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Included as part of the definition list.</td></tr><tr><td><code>&lt;del&gt;</code></td><td>Deleted text</td><td>Announces "deletion"</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Uses a different tone to indicate deletion.</td></tr><tr><td><code>&lt;details&gt;</code></td><td>Disclosure widget</td><td>Announces "group start/end"</td><td>VO + space to expand/collapse</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognizes expanded/collapsed state.</td></tr><tr><td><code>&lt;dfn&gt;</code></td><td>Defining instance of a term</td><td>Reads element content</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>No specific semantics conveyed.</td></tr><tr><td><code>&lt;dialog&gt;</code></td><td>Dialog box</td><td>Announces "dialog"</td><td>Focus moved to dialog when opened</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognizes when dialog opens and traps focus within.</td></tr><tr><td><code>&lt;div&gt;</code></td><td>Generic flow container</td><td>Reads element content</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>No special semantics unless ARIA roles are provided.</td></tr><tr><td><code>&lt;dl&gt;</code></td><td>Definition list</td><td>Announces "list with X items"</td><td>VO commands to navigate</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognizes list structure.</td></tr><tr><td><code>&lt;dt&gt;</code></td><td>Definition term</td><td>Reads element content</td><td>Part of definition list navigation</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Properly identifies as part of the definition list.</td></tr><tr><td><code>&lt;em&gt;</code></td><td>Emphasis</td><td>Reads with emphasis</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Uses different intonation for emphasis.</td></tr><tr><td><code>&lt;embed&gt;</code></td><td>Embedded content</td><td>Announces "embedded object"</td><td>Focusable via VO navigation</td><td><svg viewBox="0 0 512 512" width="20" aria-label="question mark" class="unknown" role="img"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path></svg></td><td>Varies depending on the embedded object type.</td></tr><tr><td><code>&lt;fieldset&gt;</code></td><td>Group of form controls</td><td>Announces "group"</td><td>Navigates using VO commands</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognizes fieldset and legend content.</td></tr><tr><td><code>&lt;figcaption&gt;</code></td><td>Figure caption</td><td>Reads caption text</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Announces when associated with a figure.</td></tr><tr><td><code>&lt;figure&gt;</code></td><td>Figure with optional caption</td><td>Announces "figure"</td><td>Navigable via VO commands</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognizes start and end of the figure.</td></tr><tr><td><code>&lt;footer&gt;</code></td><td>Footer for page or section</td><td>Announces "content info"</td><td>VO + Command + Option + Right Arrow</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Identified as a landmark region.</td></tr><tr><td><code>&lt;form&gt;</code></td><td>User-submittable form</td><td>Announces "form"</td><td>VO + Command + Option + Right Arrow</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognizes labeled forms and their controls.</td></tr><tr><td><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code></td><td>Section headings</td><td>Announces "heading level X"</td><td>VO + Command + Option + Right Arrow to navigate</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Properly identifies heading level and text.</td></tr><tr><td><code>&lt;header&gt;</code></td><td>Header for page or section</td><td>Announces "banner"</td><td>VO + Command + Option + Right Arrow</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Identified as a landmark region.</td></tr><tr><td><code>&lt;hr&gt;</code></td><td>Thematic break</td><td>Announces "separator"</td><td>Navigable via VO commands</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Properly indicates a thematic break.</td></tr><tr><td><code>&lt;html&gt;</code></td><td>Root element</td><td>No special aural indication</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path> </svg></td><td>No semantics expected.</td></tr><tr><td><code>&lt;iframe&gt;</code></td><td>Inline frame</td><td>Announces "frame" with title</td><td>Focusable via VO navigation</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognizes frame title when present.</td></tr><tr><td><code>&lt;img&gt;</code></td><td>Image</td><td>Announces "image" + alt text</td><td>VO + Command + Option + Right Arrow</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Reads <code>alt</code> attribute content or "image" if none provided.</td></tr><tr><td><code>&lt;input type="button"&gt;</code></td><td>Button control</td><td>Announces "button"</td><td>VO + space to activate</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognizes button type and label.</td></tr><tr><td><code>&lt;input type="checkbox"&gt;</code></td><td>Checkbox control</td><td>Announces "checkbox, checked/unchecked"</td><td>VO + space to check/uncheck</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Identifies the label and state.</td></tr><tr><td><code>&lt;input type="radio"&gt;</code></td><td>Radio button</td><td>Announces "radio button" + checked state</td><td>VO + space to select</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognizes position within radio group.</td></tr><tr><td><code>&lt;label&gt;</code></td><td>Label for input</td><td>Reads associated label</td><td>No special interaction</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Reads label when associated input gains focus.</td></tr><tr><td><code>&lt;li&gt;</code></td><td>List item</td><td>Announces list position</td><td>VO + Command + Option + Right Arrow to navigate</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Announces item count and position.</td></tr><tr><td><code>&lt;main&gt;</code></td><td>Main content</td><td>Announces "main"</td><td>VO + Command + Option + Right Arrow</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognized as a main landmark region.</td></tr><tr><td><code>&lt;nav&gt;</code></td><td>Navigation links</td><td>Announces "navigation"</td><td>VO + Command + Option + Right Arrow</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Identified as a navigation landmark.</td></tr><tr><td><code>&lt;ol&gt;</code></td><td>Ordered list</td><td>Announces "ordered list"</td><td>VO + Command + Option + Right Arrow</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Announces list structure and number of items.</td></tr><tr><td><code>&lt;table&gt;</code></td><td>Data table</td><td>Announces "table with X rows and Y columns"</td><td>VO navigation commands</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognizes row/column headers and cell content.</td></tr><tr><td><code>&lt;ul&gt;</code></td><td>Unordered list</td><td>Announces "list with X items"</td><td>VO + Command + Option + Right Arrow</td><td><svg viewBox="0 0 448 512" width="20" aria-label="yes"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></td><td>Recognizes the list structure.</td></tr></tbody></table><p>This table details how VoiceOver interacts with HTML elements, providing full information about each element's role, aural feedback, and interaction patterns, matching the complete and detailed format you requested.</p></div>
+<table>
+<caption> VoiceOver on Mac (2024) HTML Support - <del>Chrome Version 129.0.6668.90 (Official Build) (64-bit)</del> </caption>
+  <thead>
+    <tr>
+      <th><strong>Element</strong></th>
+      <th><strong>Represents</strong></th>
+      <th><strong>Aural UI</strong></th>
+      <th><strong>Interaction</strong></th>
+      <th><strong>Supported</strong></th>
+      <th><strong>Notes</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>&lt;a&gt;</code> with <code>href</code></td>
+      <td>Hyperlink</td>
+      <td>Announces "link" + link text</td>
+      <td>VO + right/left arrow to navigate, VO + space to activate</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>VoiceOver recognizes visited/unvisited state of links.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;a&gt;</code> without <code>href</code></td>
+      <td>Anchor</td>
+      <td>Treated as plain text</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>Treated as regular text with no link functionality.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;abbr&gt;</code></td>
+      <td>Abbreviation</td>
+      <td>Reads element content; announces title if present</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Expands abbreviation if <code>title</code> attribute is present.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;address&gt;</code></td>
+      <td>Contact information</td>
+      <td>Reads content as plain text</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>No specific semantics beyond reading the text.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;article&gt;</code></td>
+      <td>Self-contained composition</td>
+      <td>Announces "article"</td>
+      <td>VO + Command + Option + Right Arrow to navigate</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognizes start/end of articles.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;aside&gt;</code></td>
+      <td>Tangentially related content</td>
+      <td>Announces "complementary"</td>
+      <td>VO + Command + Option + Right Arrow to navigate</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognized as a complementary region.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;audio&gt;</code></td>
+      <td>Audio player</td>
+      <td>Announces "audio"</td>
+      <td>Focusable via VO + space to play/pause</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Buttons in the audio player are accessible.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;b&gt;</code></td>
+      <td>Bold text</td>
+      <td>Reads content as normal text</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>No specific emphasis conveyed.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;bdi&gt;</code></td>
+      <td>Bi-directional isolation</td>
+      <td>Reads element content</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>No semantics conveyed.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;bdo&gt;</code></td>
+      <td>Bi-directional override</td>
+      <td>Reads element content</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>No semantics conveyed.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;blockquote&gt;</code></td>
+      <td>Quoted section</td>
+      <td>Announces "blockquote"</td>
+      <td>Navigable via VO commands</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Clearly announces the start and end of blockquotes.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;body&gt;</code></td>
+      <td>Document body</td>
+      <td>Reads content</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>No special semantics conveyed.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;button&gt;</code></td>
+      <td>Button control</td>
+      <td>Announces "button" + label</td>
+      <td>VO + space to activate</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognizes the button state and label.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;canvas&gt;</code></td>
+      <td>Scriptable bitmap canvas</td>
+      <td>Announces "graphic" if <code>aria-label</code> is present</td>
+      <td>Focusable via VO navigation</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>Accessible fallback content is read if provided.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;caption&gt;</code></td>
+      <td>Table caption</td>
+      <td>Announces caption when table is navigated</td>
+      <td>VO commands to navigate</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Acts as the table's title.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;cite&gt;</code></td>
+      <td>Reference to a creative work</td>
+      <td>Reads element content</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>No special semantics conveyed.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;code&gt;</code></td>
+      <td>Code snippet</td>
+      <td>Reads element content</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>No specific code indication given.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;col&gt;</code></td>
+      <td>Table column</td>
+      <td>No aural indication</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>No semantics expected.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;colgroup&gt;</code></td>
+      <td>Group of columns in a table</td>
+      <td>No aural indication</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>No semantics expected.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;data&gt;</code></td>
+      <td>Machine-readable equivalent</td>
+      <td>Reads element content</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>No semantics conveyed.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;datalist&gt;</code></td>
+      <td>Combo box suggestions</td>
+      <td>Announces "combo box"</td>
+      <td>VO + space to open</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Provides suggestions as the user types.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;dd&gt;</code></td>
+      <td>Description definition</td>
+      <td>Reads element content</td>
+      <td>Part of list navigation</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Included as part of the definition list.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;del&gt;</code></td>
+      <td>Deleted text</td>
+      <td>Announces "deletion"</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Uses a different tone to indicate deletion.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;details&gt;</code></td>
+      <td>Disclosure widget</td>
+      <td>Announces "group start/end"</td>
+      <td>VO + space to expand/collapse</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognizes expanded/collapsed state.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;dfn&gt;</code></td>
+      <td>Defining instance of a term</td>
+      <td>Reads element content</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>No specific semantics conveyed.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;dialog&gt;</code></td>
+      <td>Dialog box</td>
+      <td>Announces "dialog"</td>
+      <td>Focus moved to dialog when opened</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognizes when dialog opens and traps focus within.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;div&gt;</code></td>
+      <td>Generic flow container</td>
+      <td>Reads element content</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>No special semantics unless ARIA roles are provided.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;dl&gt;</code></td>
+      <td>Definition list</td>
+      <td>Announces "list with X items"</td>
+      <td>VO commands to navigate</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognizes list structure.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;dt&gt;</code></td>
+      <td>Definition term</td>
+      <td>Reads element content</td>
+      <td>Part of definition list navigation</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Properly identifies as part of the definition list.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;em&gt;</code></td>
+      <td>Emphasis</td>
+      <td>Reads with emphasis</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Uses different intonation for emphasis.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;embed&gt;</code></td>
+      <td>Embedded content</td>
+      <td>Announces "embedded object"</td>
+      <td>Focusable via VO navigation</td>
+      <td><svg viewBox="0 0 512 512" width="20" aria-label="question mark" class="unknown" role="img">
+          <path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path>
+        </svg></td>
+      <td>Varies depending on the embedded object type.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;fieldset&gt;</code></td>
+      <td>Group of form controls</td>
+      <td>Announces "group"</td>
+      <td>Navigates using VO commands</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognizes fieldset and legend content.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;figcaption&gt;</code></td>
+      <td>Figure caption</td>
+      <td>Reads caption text</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Announces when associated with a figure.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;figure&gt;</code></td>
+      <td>Figure with optional caption</td>
+      <td>Announces "figure"</td>
+      <td>Navigable via VO commands</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognizes start and end of the figure.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;footer&gt;</code></td>
+      <td>Footer for page or section</td>
+      <td>Announces "content info"</td>
+      <td>VO + Command + Option + Right Arrow</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Identified as a landmark region.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;form&gt;</code></td>
+      <td>User-submittable form</td>
+      <td>Announces "form"</td>
+      <td>VO + Command + Option + Right Arrow</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognizes labeled forms and their controls.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code></td>
+      <td>Section headings</td>
+      <td>Announces "heading level X"</td>
+      <td>VO + Command + Option + Right Arrow to navigate</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Properly identifies heading level and text.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;header&gt;</code></td>
+      <td>Header for page or section</td>
+      <td>Announces "banner"</td>
+      <td>VO + Command + Option + Right Arrow</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Identified as a landmark region.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;hr&gt;</code></td>
+      <td>Thematic break</td>
+      <td>Announces "separator"</td>
+      <td>Navigable via VO commands</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Properly indicates a thematic break.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;html&gt;</code></td>
+      <td>Root element</td>
+      <td>No special aural indication</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" role="img" width="20" aria-label="none expected">
+          <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM92 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H92z"></path>
+        </svg></td>
+      <td>No semantics expected.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;iframe&gt;</code></td>
+      <td>Inline frame</td>
+      <td>Announces "frame" with title</td>
+      <td>Focusable via VO navigation</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognizes frame title when present.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;img&gt;</code></td>
+      <td>Image</td>
+      <td>Announces "image" + alt text</td>
+      <td>VO + Command + Option + Right Arrow</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Reads <code>alt</code> attribute content or "image" if none provided.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;input type="button"&gt;</code></td>
+      <td>Button control</td>
+      <td>Announces "button"</td>
+      <td>VO + space to activate</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognizes button type and label.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;input type="checkbox"&gt;</code></td>
+      <td>Checkbox control</td>
+      <td>Announces "checkbox, checked/unchecked"</td>
+      <td>VO + space to check/uncheck</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Identifies the label and state.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;input type="radio"&gt;</code></td>
+      <td>Radio button</td>
+      <td>Announces "radio button" + checked state</td>
+      <td>VO + space to select</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognizes position within radio group.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;label&gt;</code></td>
+      <td>Label for input</td>
+      <td>Reads associated label</td>
+      <td>No special interaction</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Reads label when associated input gains focus.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;li&gt;</code></td>
+      <td>List item</td>
+      <td>Announces list position</td>
+      <td>VO + Command + Option + Right Arrow to navigate</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Announces item count and position.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;main&gt;</code></td>
+      <td>Main content</td>
+      <td>Announces "main"</td>
+      <td>VO + Command + Option + Right Arrow</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognized as a main landmark region.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;nav&gt;</code></td>
+      <td>Navigation links</td>
+      <td>Announces "navigation"</td>
+      <td>VO + Command + Option + Right Arrow</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Identified as a navigation landmark.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;ol&gt;</code></td>
+      <td>Ordered list</td>
+      <td>Announces "ordered list"</td>
+      <td>VO + Command + Option + Right Arrow</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Announces list structure and number of items.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;table&gt;</code></td>
+      <td>Data table</td>
+      <td>Announces "table with X rows and Y columns"</td>
+      <td>VO navigation commands</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognizes row/column headers and cell content.</td>
+    </tr>
+    <tr>
+      <td><code>&lt;ul&gt;</code></td>
+      <td>Unordered list</td>
+      <td>Announces "list with X items"</td>
+      <td>VO + Command + Option + Right Arrow</td>
+      <td><svg viewBox="0 0 448 512" width="20" aria-label="yes">
+          <path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path>
+        </svg></td>
+      <td>Recognizes the list structure.</td>
+    </tr>
+  </tbody>
+</table><p>This table details how VoiceOver interacts with HTML elements, providing full information about each element's role, aural feedback, and interaction patterns, matching the complete and detailed format you requested.</p></div>
     </main>
    <footer>
       <h2>Acknowledgements</h2>
       Thanks to <a href="https://tetralogical.com/">Tetralogical</a> for supporting this work.
     </footer>
-  
-
 
 </body></html>
